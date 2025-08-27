@@ -1,0 +1,13 @@
+# Site settings
+title: 百年漕河泾
+description: 漕河泾历史文化展示网站
+baseurl: ""
+url: "https://xmxjq.github.io"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+# Encoding
+encoding: utf-8
