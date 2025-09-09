@@ -55,16 +55,16 @@
 ### 部署到GitHub Pages
 由于这是一个xmxjq.github.io仓库，演示文稿将自动在以下地址可用：
 ```
-https://xmxjq.github.io/caohejing-presentation.html
+https://xmxjq.github.io/presentation/caohejing-presentation.html
 ```
 
 ## 内容来源
 
 所有内容均基于本仓库中的markdown文档整理，主要参考文件：
-- `markdowns/故土余香——漕河泾镇回眸.md`
-- `markdowns/沪说 _ 悠悠漕河泾，流淌四百年.md`
-- `markdowns/消失的魔都古镇——漕河泾镇.md`
-- `markdowns/我是百年漕河泾，向你重新介绍我自己！（附"绝版"老照片）_习勤.md`
+- `../markdowns/故土余香——漕河泾镇回眸.md`
+- `../markdowns/沪说 _ 悠悠漕河泾，流淌四百年.md`
+- `../markdowns/消失的魔都古镇——漕河泾镇.md`
+- `../markdowns/我是百年漕河泾，向你重新介绍我自己！（附"绝版"老照片）_习勤.md`
 - 以及其他相关历史文档
 
 ## 特色功能
