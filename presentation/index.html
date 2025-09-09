@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漕河泾集镇演示文稿导航 - Caohejing Presentations Index</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', '宋体', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+        
+        .header p {
+            margin: 0;
+            font-size: 1.3em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .header .stats {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .header .stat {
+            background: rgba(255,255,255,0.15);
+            padding: 15px 25px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            font-size: 1.1em;
+        }
+        
+        .presentations {
+            padding: 60px 40px;
+        }
+        
+        .presentations h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+            max-width: 400px;
+            margin: 0 auto 50px auto;
+        }
+        
+        .presentation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .presentation-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .presentation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+        
+        .card-header {
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .card-header.history {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+        
+        .card-header.modern {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-header.development {
+            background: linear-gradient(135deg, #2E86AB 0%, #A23B72 100%);
+        }
+        
+        .card-header h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        
+        .card-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .card-content {
+            padding: 30px;
+        }
+        
+        .card-content h4 {
+            color: #2c3e50;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+        }
+        
+        .card-content ul {
+            margin: 0;
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+        
+        .card-content ul li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .card-footer {
+            padding: 25px 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn.history {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+        
+        .btn.history:hover {
+            box-shadow: 0 8px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn.development {
+            background: linear-gradient(135deg, #2E86AB 0%, #A23B72 100%);
+        }
+        
+        .btn.development:hover {
+            box-shadow: 0 8px 15px rgba(46, 134, 171, 0.4);
+        }
+        
+        .card-info {
+            font-size: 0.9em;
+            color: #666;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer h3 {
+            margin: 0 0 20px 0;
+            font-size: 1.5em;
+        }
+        
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .presentation-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .presentations {
+                padding: 40px 20px;
+            }
+            
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>漕河泾演示文稿导航</h1>
+            <p>探索漕河泾从古镇到现代高科技产业基地的完整发展历程</p>
+            <div class="stats">
+                <div class="stat">📚 4个演示文稿</div>
+                <div class="stat">🎯 3个主题维度</div>
+                <div class="stat">📖 20+页内容</div>
+            </div>
+        </header>
+
+        <main class="presentations">
+            <h2>演示文稿索引</h2>
+            
+            <div class="presentation-grid">
+                <!-- 历史篇 -->
+                <div class="presentation-card">
+                    <div class="card-header history">
+                        <h3>📜 历史篇：漕河泾古镇</h3>
+                        <p>悠悠四百年历史的江南古镇</p>
+                    </div>
+                    <div class="card-content">
+                        <h4>内容概要 (5页)</h4>
+                        <ul>
+                            <li><strong>历史起源</strong> - 地名演变与漕运枢纽地位</li>
+                            <li><strong>文化地标</strong> - 教育机构、宗教建筑、园林景观</li>
+                            <li><strong>历史名人</strong> - 黄金荣、冼冠生等杰出人物</li>
+                            <li><strong>现代变迁</strong> - 行政变迁与历史传承</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-info">
+                            <span>🕒 时间跨度：元代 - 现代</span>
+                            <span>🎨 框架：Reveal.js</span>
+                        </div>
+                        <a href="caohejing-presentation.html" class="btn history">查看演示</a>
+                    </div>
+                </div>
+
+                <!-- 现代篇 -->
+                <div class="presentation-card">
+                    <div class="card-header modern">
+                        <h3>🏙️ 现代篇：街道发展现状</h3>
+                        <p>从古镇到现代都市的华丽转身</p>
+                    </div>
+                    <div class="card-content">
+                        <h4>内容概要 (5页)</h4>
+                        <ul>
+                            <li><strong>街道格局</strong> - 四大核心街道现状分析</li>
+                            <li><strong>区域对比</strong> - 漕河泾、康健、田林街道特色</li>
+                            <li><strong>道路文化</strong> - 源于漕河泾的著名上海道路</li>
+                            <li><strong>发展成就</strong> - 人口增长与产业升级成果</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-info">
+                            <span>📊 覆盖人口：25万+</span>
+                            <span>🎨 纯HTML设计</span>
+                        </div>
+                        <a href="caohejing-modern-status.html" class="btn">查看演示</a>
+                    </div>
+                </div>
+
+                <!-- 开发区篇 -->
+                <div class="presentation-card">
+                    <div class="card-header development">
+                        <h3>🏗️ 开发区篇：高科技产业基地</h3>
+                        <p>国家级高新技术产业开发区</p>
+                    </div>
+                    <div class="card-content">
+                        <h4>内容概要 (5页)</h4>
+                        <ul>
+                            <li><strong>设立背景</strong> - 1984年建立的历史机遇</li>
+                            <li><strong>发展历程</strong> - 四十年发展重要里程碑</li>
+                            <li><strong>现状规模</strong> - 3000+企业，3000亿产值</li>
+                            <li><strong>未来展望</strong> - "十四五"5000亿目标愿景</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-info">
+                            <span>🏢 企业数量：3000+</span>
+                            <span>💰 年产值：3000亿元</span>
+                        </div>
+                        <a href="caohejing-development-zone.html" class="btn development">查看演示</a>
+                    </div>
+                </div>
+
+                <!-- 独立历史篇 -->
+                <div class="presentation-card">
+                    <div class="card-header history">
+                        <h3>📖 历史篇：独立版本</h3>
+                        <p>漕河泾古镇历史专题演示</p>
+                    </div>
+                    <div class="card-content">
+                        <h4>内容概要 (5页)</h4>
+                        <ul>
+                            <li><strong>精简版本</strong> - 专注历史文化内容</li>
+                            <li><strong>独立使用</strong> - 可单独进行历史主题演讲</li>
+                            <li><strong>原创设计</strong> - 与标准版样式略有不同</li>
+                            <li><strong>便携版本</strong> - 适合快速分享和展示</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-info">
+                            <span>🎯 主题：历史文化</span>
+                            <span>🎨 独立设计风格</span>
+                        </div>
+                        <a href="caohejing-presentation-standalone.html" class="btn history">查看演示</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <h3>📋 使用说明</h3>
+            <p><strong>导航控制：</strong>使用键盘方向键 ←/→ 导航，按 ESC 查看概览，按 F 进入全屏模式</p>
+            <p><strong>在线访问：</strong>所有演示文稿均可通过 <a href="https://xmxjq.github.io/presentation/">https://xmxjq.github.io/presentation/</a> 访问</p>
+            <p><strong>内容来源：</strong>基于仓库中的历史文档资料整理，详见 <a href="README-presentation.md">README-presentation.md</a></p>
+            <p><em>本演示文稿系列旨在全面展现漕河泾从古镇到现代高科技产业基地的完整发展历程</em></p>
+        </footer>
+    </div>
+</body>
+</html>
