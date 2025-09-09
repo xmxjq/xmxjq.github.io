@@ -127,6 +127,11 @@
 - [漕河泾现代发展现状PPT](caohejing-modern-status.html)
 - [漕河泾现代发展现状文档](caohejing-modern-status.md)
 
+### 🏢 漕河泾新兴技术开发区
+如需了解漕河泾开发区的专门介绍，请参阅：
+- [漕河泾开发区介绍PPT](caohejing-development-zone.html) 
+- [漕河泾开发区介绍文档](caohejing-development-zone.md)
+
 ### 🗺️ 从古镇到现代街区的地名传承
 - **漕河泾街道** - 保持古镇名称，传承历史文脉
 - **康健新村街道** - 康健路源自黄金荣修建的金荣路
